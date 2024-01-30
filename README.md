@@ -10,8 +10,7 @@ use gocommerce;
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     id            INT AUTO_INCREMENT NOT NULL,
-    first_name    VARCHAR(128) NOT NULL,
-    last_name     VARCHAR(128) NOT NULL,
+    name    VARCHAR(128) NOT NULL,
     email         VARCHAR(128) NOT NULL,
     password      VARCHAR(128) NOT NULL,
     social_id     VARCHAR(128),
@@ -23,3 +22,16 @@ CREATE TABLE users (
   PRIMARY KEY (`id`)
 );
 ```
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+  "name": "Agustttt",
+  "email": "agust@agust.com",
+  "password": "root"
+}' http://localhost:6969/signup
+```
+
+```bash
+{"data":{"ID":1,"Name":"Agustttt","Email":"agust@agust.com","Password":"$2a$10$T7CdMQDgXdiBR6HLtPMvoOOlkFCxssU.26qmgx3bbZKbowAylpUma","Verified":false,"SocialID":"","Avatar":"","Otp_enabled":false,"Otp_verified":false,"Otp_secret":"","Otp_auth_url":""},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDY2NzQ4MDQsImlhdCI6MTcwNjU4ODQwNCwibmJmIjoxNzA2NTg4NDA0LCJzdWIiOjF9.Jn6l4D48At7tSZFtLipV1AeMQKRpBVDles5zdVGDlNA"}%
+```
+

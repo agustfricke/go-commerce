@@ -7,4 +7,5 @@ import (
 
 func SetupRoutes(app *fiber.App) {
   app.Get("/check", handlers.Check)
+  app.Post("/signup", handlers.SignUp)
 }
